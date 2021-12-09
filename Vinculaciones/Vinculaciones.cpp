@@ -1,3 +1,20 @@
+static int g_x; // globales no-constant tienen external linkage predeterminada, pero se le puede proporcionar internal linkage a través de la palabra clave static
+
+const int g_y{ 1 }; // globales const tienen internal linkage predeterminada
+constexpr int g_z{ 2 }; // globales constexpr tienen internal linkage predeterminada
+
+int main()
+{
+    return 0;
+}
+
+
+
+
+
+
+
+
 #include <iostream>
 int main()
 {
