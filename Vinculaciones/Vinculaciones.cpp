@@ -1,4 +1,23 @@
 #include <iostream>
+int main()
+{
+    int x{ 2 }; // variable local, no linkage, no vinculada
+
+    {
+        int x{ 3 }; // este identificador x se refiere a un objeto diferente que el x previo
+        
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+/*#include <iostream>
 
 int main()
 { // bloque externo
@@ -15,7 +34,7 @@ int main()
     // y ya no puede ser usado aquí porque está fuera de alcance en este bloque externo
 
     return 0;
-} // x va fuera de alcance y es destruido aquí
+} // x va fuera de alcance y es destruido aquí*/
 
 
 
