@@ -1,6 +1,38 @@
 #include <iostream>
 int valor{ 5 }; // variable global
 
+int main()
+{
+	int valor{ 7 }; // oculta a la variable global valor
+	++valor; // incrementa el valor local, no el valor global
+
+	--(::valor); // decremento el valor global, no el valor local (pareéntesis añadidos para legibilidad)
+
+	std::cout << "valor variable local: " << valor << '\n';
+	std::cout << "valor variable global: " << ::valor << '\n';
+
+	return 0;
+} // valor local es destruido
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*#include <iostream>
+int valor{ 5 }; // variable global
+
 void foo()
 {
 	std::cout << "valor variable global: " << valor << '\n'; // valor no está oculto, se refiere al valor global
@@ -17,7 +49,7 @@ int main()
 	foo();
 
 	return 0;
-} // valor local es destruido
+} // valor local es destruido*/
 
 
 
