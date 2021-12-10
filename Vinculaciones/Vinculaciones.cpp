@@ -1,4 +1,40 @@
-static int g_x; // globales no-constant tienen external linkage predeterminada, pero se le puede proporcionar internal linkage a través de la palabra clave static
+#include <iostream>
+
+int main()
+{ // bloque externo
+    int contenidos{ 5 }; // éste es el contenidos del bloque externo
+
+    { // bloque anidado
+        // contenidos se refiere al bloque externo contenidos aquí
+        std::cout << contenidos << '\n'; // imprime el valor del contenidos del bloque externo
+
+        int contenidos{ 0 }; // define contenidos en el alcance del bloque anidado
+
+        // contenidos ahora se refiere al contenidos del bloque anidado
+        // el contenidos del bloque externo se oculta temporalmente
+
+        contenidos = 10; // esto asigna el valor 10 al contenidos del bloque anidado, no al contenidos del bloque externo
+
+        std::cout << contenidos << '\n'; // imprime el valor del contenidos del bloque anidado
+    } // contenidos del bloque anidado es destruido
+
+
+    std::cout << contenidos << '\n'; // imprime el valor del bloque externo contenidos
+
+    return 0;
+} // bloque externo contenidos destuido
+
+
+
+
+
+
+
+
+
+
+
+/*static int g_x; // globales no-constant tienen external linkage predeterminada, pero se le puede proporcionar internal linkage a través de la palabra clave static
 
 const int g_y{ 1 }; // globales const tienen internal linkage predeterminada
 constexpr int g_z{ 2 }; // globales constexpr tienen internal linkage predeterminada
@@ -6,7 +42,7 @@ constexpr int g_z{ 2 }; // globales constexpr tienen internal linkage predetermi
 int main()
 {
     return 0;
-}
+}*/
 
 
 
@@ -15,7 +51,7 @@ int main()
 
 
 
-#include <iostream>
+/*#include <iostream>
 int main()
 {
     int x{ 2 }; // variable local, no linkage, no vinculada
@@ -26,7 +62,7 @@ int main()
     }
 
     return 0;
-}
+}*/
 
 
 
